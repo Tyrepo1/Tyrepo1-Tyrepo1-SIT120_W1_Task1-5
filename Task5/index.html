@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<style>
+    /* Class for completed todos */
+    .complete{
+        text-decoration: line-through;
+    }
+</style>
+</head>
+<body>
+<div id="app">
+    <div class = container>
+        <!--Inputs for todo creation-->
+        <input type="text" v-model="todo">
+        <input type="submit" value="add" @click="storeTodo">
+        <ol>
+            <!--Loop over every todo strings in todos array--> 
+            <li v-for="(todo, index) in todos">
+                <!--Binds complete class only if its index is in the completedTodos array-->     
+                <span v-bind:class="{complete:completedTodos.indexOf(index) !== -1}">{{todo}}</span>
+                <!--Buttons for edit, delete and complete--> 
+                <button @click="editTodo(index, todo)">Edit</button>
+                <button @click="deleteTodo(index)">Delete</button>
+                <button @click="completeTodo(index)">Complete</button>
+                <!--Only show the text input for updating if the user clicked the edit button, 
+                the text input will only appear under the todo that the user clicked edit on--> 
+                <div v-if="isEditing && index===selectedIndex">
+                    <input type="text" v-model="newValue">
+                    <input type="submit" value="update" @click="updateTodo">
+                </div>
+            </li>
+        </ol>
+    </div>
+</div>
+    
+</body>
+</html>
+<script src="todo.js"></script>

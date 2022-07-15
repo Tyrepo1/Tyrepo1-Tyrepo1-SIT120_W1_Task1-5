@@ -1,0 +1,27 @@
+body{
+    background-color: #fada82;
+    color: #876508;
+}
+#header{
+    text-align: center;
+}
+td{
+    border-style: solid;
+}
+img{
+     display: block;
+    width: 70%;
+    height: 100px;
+    margin-left: auto;
+     margin-right: auto;
+}
+a{
+    display: block;
+    width: 70%;
+    margin-left: auto;
+     margin-right: auto;
+}
+#result{
+    font-size: 50px;
+    text-align: center;
+}
